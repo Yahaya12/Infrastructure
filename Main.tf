@@ -25,6 +25,7 @@ resource "vault_aws_secret_backend_role" "role" {
   role_arns       = [aws_iam_role.role.arn]
 }
 
+
 resource "aws_instance" "example" {
      ami = "ami-00000000000"
      instance_type = "t2.micro"
