@@ -24,3 +24,9 @@ resource "vault_aws_secret_backend_role" "role" {
   credential_type = "assumed_role"
   role_arns       = [aws_iam_role.role.arn]
 }
+
+resource "aws_instance" "example" {
+     ami = "ami-00000000000"
+     instance_type = "t2.micro"
+     availability_zone = var.availability_zone
+}
