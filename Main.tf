@@ -25,9 +25,14 @@ resource "vault_aws_secret_backend_role" "role" {
   role_arns       = [aws_iam_role.role.arn]
 }
 
+resource "aws_iam_instance_profile" "Infrastructure_profile" {
+  name = "Infrastructure_profile"
+  role = aws_iam_role.Infrastructure_profile.ye
+}
 
 resource "aws_instance" "example" {
      ami = "ami-00000000000"
      instance_type = "t2.micro"
      availability_zone = var.availability_zone
+     iam_instance_profile = aws_iam_instance_profile.Infrastructure_profile.ye
 }
